@@ -1,0 +1,17 @@
+node{
+def MAVEN_HOME = tool name: "maven3.8.5"
+stage('Git Code'){
+git branch: 'main', credentialsId: 'git', url: 'https://github.com/nawazshaik394/krssrinivas-mvn-app.git'
+}
+stage('Build'){
+sh "$MAVEN_HOME/bin/mvn clean package"    
+}
+stage('Deploy'){
+sshagent(['nawaztomcat']) {
+sh "scp -o StrictHostKeyChecking=no target/KRS-maven-web-app.war ec2-user@65.2.166.47:/opt/apache-tomcat-9.076/webapps/KRS-maven-web-app.war"   
+}
+}
+}
+
+
+

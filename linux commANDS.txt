@@ -1,0 +1,24 @@
+DIRECTORY COMMANDS     
+
+PWD
+CD
+MKDIR
+RMDIR
+RM -R
+CP -R
+
+FILE CONTENT COMMANDS
+
+cat
+head
+tail
+grep
+awk
+vim
+
+UTILITY COMMANDS
+
+find
+curl
+tar
+unzip
